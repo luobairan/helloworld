@@ -20,6 +20,14 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+
     </dependencies>
 
     <build>
@@ -28,6 +36,61 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <testFailureIgnore>true</testFailureIgnore>
+                    <!--包含的Test类 -->
+                    <includes>
+                        <include>**/*Test.java</include>
+                    </includes>
+                    <!--排除的Test类 -->
+                    <excludes>
+                    </excludes>
+                </configuration>
+            </plugin>
+
+
+            <plugin>
+                <groupId>org.jvnet.maven-antrun-extended-plugin</groupId>
+                <artifactId>maven-antrun-extended-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>test-reports</id>
+                        <phase>test</phase>
+                        <configuration>
+                            <tasks>
+                                <junitreport todir="${basedir}/target/surefire-reports">
+                                    <fileset dir="${basedir}/target/surefire-reports">
+                                        <include name="**/*.xml" />
+                                    </fileset>
+                                    <report format="frames" todir="${basedir}/target/surefire-reports" />
+                                </junitreport>
+                            </tasks>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.ant</groupId>
+                        <artifactId>ant-junit</artifactId>
+                        <version>1.8.0</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.apache.ant</groupId>
+                        <artifactId>ant-trax</artifactId>
+                        <version>1.8.0</version>
+                    </dependency>
+                </dependencies>
+
+            </plugin>
+
+
+
         </plugins>
     </build>
 
