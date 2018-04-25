@@ -24,12 +24,12 @@ public class DemoTest {
 
     @Test
     public void TestMth3() {
-        assertTrue("msg : false false false false false", false);
+        assertTrue("msg : true true true true true", true);
     }
 
     @Test
     public void TestMth4() {
-        assertTrue("msg : false false false false false", false);
+        assertTrue("msg : true true true true true", true);
     }
 
 

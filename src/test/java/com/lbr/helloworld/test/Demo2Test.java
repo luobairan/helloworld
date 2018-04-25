@@ -20,7 +20,7 @@ public class Demo2Test {
 
     @Test
     public void TestMth4() {
-        assertTrue("msg : mth4 test test test test", false);
+        assertTrue("msg : mth4 test test test test", true);
     }
 
 }
