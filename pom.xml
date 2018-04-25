@@ -65,7 +65,7 @@
                                     <fileset dir="${basedir}/target/surefire-reports">
                                         <include name="**/*.xml" />
                                     </fileset>
-                                    <report format="frames" todir="${basedir}/target/surefire-reports" />
+                                    <report format="frames" todir="${basedir}/target/surefire-reports/html" />
                                 </junitreport>
                             </tasks>
                         </configuration>
