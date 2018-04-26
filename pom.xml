@@ -40,6 +40,7 @@
     <build>
         <plugins>
 
+            <!--提供war自动部署-plugin-->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>tomcat-maven-plugin</artifactId>
@@ -58,6 +59,8 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
 
+
+            <!--生成junit测试报告-plugin-->
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
@@ -72,7 +75,7 @@
                 </configuration>
             </plugin>
 
-
+            <!--美化junit测试报告-plugin-->
             <plugin>
                 <groupId>org.jvnet.maven-antrun-extended-plugin</groupId>
                 <artifactId>maven-antrun-extended-plugin</artifactId>
@@ -82,10 +85,12 @@
                         <phase>test</phase>
                         <configuration>
                             <tasks>
+                                <!--junit测试报告生成的地址-->
                                 <junitreport todir="${basedir}/target/surefire-reports">
                                     <fileset dir="${basedir}/target/surefire-reports">
                                         <include name="**/*.xml"/>
                                     </fileset>
+                                    <!--测试报告输出的path-->
                                     <report format="frames" todir="${basedir}/target/surefire-reports/html"/>
                                 </junitreport>
                             </tasks>
