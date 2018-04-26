@@ -26,6 +26,11 @@ public class HomeController {
 
         return age;
     }
+
+    @RequestMapping("/abc")
+    public Integer check() {
+        return 1001;
+    }
 }
 
 
