@@ -7,7 +7,6 @@
 package com.lbr.helloworld;
 
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -29,7 +28,7 @@ public class HomeController {
 
     @RequestMapping("/abc")
     public Integer check() {
-        return 1001;
+        return 1002221;
     }
 }
 
